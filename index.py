@@ -5,7 +5,6 @@ from seed import seed
 from sanic.response import html, redirect
 import jinja2
 import asyncio
-import qbittorrentapi
 
 app = Sanic(__name__)
 jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader('templates'))
