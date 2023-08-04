@@ -1,4 +1,4 @@
-sites =[{'id': 0, 'siteName': '红叶', 'siteUrl': 'https://leaves.red/', 'apiUrl': 'https://leaves.red/api/pieces-hash', 'passkey': 'abe4d7c5adbfbcc4c0ab06708717afc9'}, 
-{'id': 1, 'siteName': '猪猪', 'siteUrl': 'https://piggo.me/', 'apiUrl': 'https://api.piggo.me/api/pieces-hash', 'passkey': '5028fa5d79cef1e2cc4b322fd52ae80d'}, 
-{'id': 2, 'siteName': 'ultrahd', 'siteUrl': 'https://ultrahd.net/', 'apiUrl': 'https://ultrahd.net/api/pieces-hash', 'passkey': 'b76ae91b38a95aeb24a4c9a72ab622c5'},
-{'id': 3, 'siteName': 'zmpt(织梦)', 'siteUrl': 'https://zmpt.cc/', 'apiUrl': 'https://zmpt.cc/api/pieces-hash', 'passkey': 'cd067c47cd267d962b9c670f8b6c9ba2'},]
+sites =[{'id': 0, 'siteName': '红叶', 'siteUrl': 'https://leaves.red/', 'apiUrl': 'https://leaves.red/api/pieces-hash', 'passkey': ''}, 
+{'id': 1, 'siteName': '猪猪', 'siteUrl': 'https://piggo.me/', 'apiUrl': 'https://api.piggo.me/api/pieces-hash', 'passkey': ''}, 
+{'id': 2, 'siteName': 'ultrahd', 'siteUrl': 'https://ultrahd.net/', 'apiUrl': 'https://ultrahd.net/api/pieces-hash', 'passkey': ''},
+{'id': 3, 'siteName': 'zmpt(织梦)', 'siteUrl': 'https://zmpt.cc/', 'apiUrl': 'https://zmpt.cc/api/pieces-hash', 'passkey': ''},]
