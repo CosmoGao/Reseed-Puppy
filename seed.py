@@ -5,6 +5,7 @@ import requests
 from log import writeLog
 import bencodepy
 from config.site_config import sites
+from cache import add_seed_to_cache,remove_cached_values
 import qbittorrentapi
 logger = writeLog('my_logger', 'log/reseed.log')
 # 配置qbittorrentapi的连接参数以及尝试连接
@@ -50,6 +51,8 @@ def seed():
                     torrent_name_topieces[pieces_sha1] = file_name
             except:
                 continue
+    # 去除已记录在cache中种子
+    pieces_hash_list = remove_cached_values(pieces_hash_list)
     logger.info("当前种子库：%d 个种子", len(pieces_hash_list))
     # 只查询配置了passkey的站点
     for site in filter(lambda x: x['passkey'], sites):
@@ -71,6 +74,7 @@ def seed():
             except requests.exceptions.RequestException as e:
                 logger.warning('站点请求失败：%s - %s', site['siteName'], e)
                 continue
+            print(response.text)
             response_json = response.json()
             # 判断返回的数据是否为字典，某些站点没有查询到结果时返回的是数组
             if isinstance(response_json.get('data'), dict):
@@ -87,10 +91,8 @@ def seed():
                             logger.info("种子pieces_info:%s", value)
                             logger.info("%s ：正在添加到下载器中",
                                         torrent_name_topieces[value])
-                        fz_array.append(
-                            f"{site['siteUrl']}download.php?id={response_json['data'][value]}&passkey={site['passkey']}")
-            else:
-                logger.info("%s 没有可辅种的种子", site['siteName'])
+                            add_seed_to_cache(value)
+                            fz_array.append(f"{site['siteUrl']}download.php?id={response_json['data'][value]}&passkey={site['passkey']}")
 
     logger.info("可辅种数：%d 个种子", len(fz_array))
     logger.info(fz_array)
